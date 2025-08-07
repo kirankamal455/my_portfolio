@@ -477,6 +477,7 @@ class _DashboardPageState extends State<DashboardPage>
                 //   data: (userProfile) {
                 return Column(
                   children: [
+                    Gap(20),
                     Padding(
                       padding: const EdgeInsets.all(15),
                       child: GlassCardSample(

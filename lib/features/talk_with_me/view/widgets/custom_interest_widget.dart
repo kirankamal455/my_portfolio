@@ -19,13 +19,13 @@ class CutomIntresetWidget extends ConsumerWidget {
       },
       onTap: () {},
       child: intresetName.text.bold
-          .color(onIntrestHover ? Colors.white : context.primaryColor)
+          //.color(onIntrestHover ? Colors.white : context.primaryColor)
           .make()
           .p(8)
           .box
-          .border(color: context.primaryColor)
+         // .border(color: context.primaryColor)
           .withRounded(value: 10)
-          .color(onIntrestHover ? context.primaryColor : Colors.transparent)
+          .color(onIntrestHover ? context.primaryColor : Colors.black54)
           .make(),
     );
   }

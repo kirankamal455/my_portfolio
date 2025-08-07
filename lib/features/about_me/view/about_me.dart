@@ -4,11 +4,13 @@ import 'package:flutter_animate_on_scroll/flutter_animate_on_scroll.dart';
 import 'package:gap/gap.dart';
 import 'package:kiran_portfolio/core/gen/assets.gen.dart';
 import 'package:kiran_portfolio/core/gen/fonts.gen.dart';
+import 'package:kiran_portfolio/shared/extension/fade_extenstion.dart';
 
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../../../shared/widget/custom_text_heading.dart';
+import '../../dashboard/view/dashboard_page.dart';
 
 class AboutMePage extends StatelessWidget {
   const AboutMePage({super.key});
@@ -16,7 +18,7 @@ class AboutMePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return [
-      const CustomSectionHeading(headingName: "About Me"),
+      const CustomSectionHeading(headingName: "About Me").fadeInUp(),
       const Gap(50),
       // [
 
@@ -31,43 +33,50 @@ class AboutMePage extends StatelessWidget {
           rowMainAxisAlignment: MainAxisAlignment.spaceEvenly,
           rowCrossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            ResponsiveBreakpoints.of(context).largerThan(MOBILE)
-                ? ResponsiveRowColumnItem(
-                    child: VxBox(
-                        child: Image.asset(
-                      MyAssets.images.profileSide.path,
-                      height: 500,
-                    )).height(500).width(400).make()
-                    
-                    //.fadeInLeft(),
-                  )
-                : const ResponsiveRowColumnItem(child: SizedBox.shrink()),
+            // ResponsiveBreakpoints.of(context).largerThan(MOBILE)
+            //     ? ResponsiveRowColumnItem(
+            //         child: VxBox(
+            //             child: Image.asset(
+            //         MyAssets.images.profileSide.path,
+            //         height: 500,
+            //       )).height(500).width(400).make()
+            //
+            //         //.fadeInLeft(),
+            //         )
+            //     :
+
+            const ResponsiveRowColumnItem(child: SizedBox.shrink()),
             ResponsiveRowColumnItem(
                 rowFlex: 1,
                 rowFit: FlexFit.tight,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    "Who am I?".text.xl3.make(),
-                    "I'm Kiran kamal ,a Flutter developer,Ui dessigner"
-                        .text
-                        .xl4
-                        .bold
-                        .fontFamily(FontFamily.poppins)
-                        .align(TextAlign.justify)
-                        .make()
-                        .pOnly(top: 15),
-                    "I'm a B-Tech graduate with Infomation Technology. I have been developing mobile apps for over 1.8 years now \nAs a Flutter developer, I specialize in building cross-platform applications that run smoothly on both Android and iOS devices, leveraging the power of Google's versatile UI toolkit. My expertise extends beyond mere functionality; I thrive on designing visually stunning user interfaces that not only captivate users but also enhance their interaction with the app."
-                        .text
-                        .xl2
-                        .fontFamily(FontFamily.montserrat)
-                        .align(TextAlign.justify)
-                        .make()
-                        .pOnly(top: 15)
-                  ],
+                child: GlassCardSample(
+                  height:ResponsiveBreakpoints.of(context).smallerThan(DESKTOP)
+                      ?context.screenHeight * 0.7: 300,
+                  width: context.screenWidth * 0.86,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      "Who am I?".text.xl3.make(),
+                      "I'm Kiran kamal ,a Flutter developer,Ui dessigner"
+                          .text
+                          .xl4
+                          .bold
+                          .fontFamily(FontFamily.poppins)
+                          .align(TextAlign.justify)
+                          .make()
+                          .pOnly(top: 15),
+                      "I'm a B-Tech graduate with Infomation Technology. I have been developing mobile apps for over 1.8 years now \nAs a Flutter developer, I specialize in building cross-platform applications that run smoothly on both Android and iOS devices, leveraging the power of Google's versatile UI toolkit. My expertise extends beyond mere functionality; I thrive on designing visually stunning user interfaces that not only captivate users but also enhance their interaction with the app."
+                          .text
+                          .xl2
+                          .fontFamily(FontFamily.montserrat)
+                          .align(TextAlign.justify)
+                          .make()
+                          .pOnly(top: 15)
+                    ],
+                  ).p(20),
                 )
-                //.fadeInRight(),
+                 .fadeInRight(),
                 ),
           ],
         ),

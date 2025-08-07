@@ -54,7 +54,7 @@ class TalkWithMePage extends StatelessWidget {
               "I'm interested in.."
                   .text
                   .bold
-                  .color(context.primaryColor)
+                  .color(context.isDarkMode?Colors.white: context.primaryColor)
                   .make(),
               const Gap(20),
               const Wrap(
@@ -78,7 +78,7 @@ class TalkWithMePage extends StatelessWidget {
               TextField(
                 decoration: InputDecoration(
                   contentPadding: const EdgeInsets.all(12),
-                  fillColor: Colors.white,
+                  fillColor: Colors.black54,
                   filled: true,
                   hintText: "Your name",
                   enabledBorder: const OutlineInputBorder(
@@ -105,14 +105,14 @@ class TalkWithMePage extends StatelessWidget {
               TextField(
                 decoration: InputDecoration(
                   contentPadding: const EdgeInsets.all(12),
-                  fillColor: Colors.white,
+                  fillColor: Colors.black54,
                   filled: true,
                   hintText: "Your email",
-                  border: const OutlineInputBorder(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(7),
-                    ),
-                  ),
+                  // border: const OutlineInputBorder(
+                  //   borderRadius: BorderRadius.all(
+                  //     Radius.circular(7),
+                  //   ),
+                  // ),
                   enabledBorder: const OutlineInputBorder(
                     borderRadius: BorderRadius.all(
                       Radius.circular(7),
@@ -137,7 +137,7 @@ class TalkWithMePage extends StatelessWidget {
               TextField(
                 maxLines: 7,
                 decoration: InputDecoration(
-                  fillColor: Colors.white,
+                  fillColor: Colors.black54,
                   filled: true,
                   hintText: "Your message",
                   border: const OutlineInputBorder(

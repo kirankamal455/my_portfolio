@@ -46,48 +46,47 @@ class _ToolsAndTechState extends State<ToolsAndTech> {
               imagePath: MyAssets.images.toolsImages.python.path,
               imageName: 'Python',
             )
-            //.fadeInRight(milliseconds: 700, offset: 100),
-            ,
+             .fadeInRight(milliseconds: 700, offset: 100),
+
             SquareWidget(
               imagePath: MyAssets.images.toolsImages.firebase.path,
               imageName: 'Firebase',
             )
-            //.fadeInRight(milliseconds: 800, offset: 150),
-            ,
+             .fadeInRight(milliseconds: 800, offset: 150),
+
             SquareWidget(
               imagePath: MyAssets.images.toolsImages.git.path,
               imageName: 'Git',
-            ) //.fadeInRight(milliseconds: 900, offset: 200),
-            ,
+            )  .fadeInRight(milliseconds: 900, offset: 200),
+
             SquareWidget(
               imagePath: MyAssets.images.toolsImages.github.path,
               imageName: 'Github',
             )
-            //.fadeInRight(milliseconds: 1000, offset: 250),
-            ,
+         .fadeInRight(milliseconds: 1000, offset: 250),
+
             SquareWidget(
               imagePath: MyAssets.images.toolsImages.aws.path,
               imageName: 'AWS',
             )
-            //.fadeInRight(milliseconds: 1100, offset: 300),
-            ,
+           .fadeInRight(milliseconds: 1100, offset: 300),
             SquareWidget(
               imagePath: MyAssets.images.toolsImages.vscode.path,
               imageName: 'Vs Code',
             )
-            //.fadeInRight(milliseconds: 1200, offset: 350),
-            ,
+             .fadeInRight(milliseconds: 1200, offset: 350),
+
             SquareWidget(
               imagePath: MyAssets.images.toolsImages.androidStudio.path,
               imageName: 'Android Studio',
             )
-            //.fadeInRight(milliseconds: 1300, offset: 400),
-            ,
+            .fadeInRight(milliseconds: 1300, offset: 400),
+
             SquareWidget(
               imagePath: MyAssets.images.toolsImages.figma.path,
               imageName: 'Figma',
             )
-            //.fadeInRight(milliseconds: 1400, offset: 450),
+           .fadeInRight(milliseconds: 1400, offset: 450),
           ],
         ).pOnly(top: 20),
       ].vStack(),

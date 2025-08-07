@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:kiran_portfolio/shared/extension/fade_extenstion.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../../features/dashboard/view/dashboard_page.dart';
@@ -124,6 +125,6 @@ class AeonWalletCard extends ConsumerWidget {
                       .make(),
                 ]),
               ),
-            ]).p32()));
+            ]).p32())) ;
   }
 }

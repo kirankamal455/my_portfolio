@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:kiran_portfolio/features/projects/controller/project_details_pod.dart';
 import 'package:kiran_portfolio/features/projects/view/widgets/custom_project_card.dart';
+import 'package:kiran_portfolio/shared/extension/fade_extenstion.dart';
 import 'package:kiran_portfolio/shared/widget/custom_project_card.dart';
 
 import 'package:responsive_framework/responsive_framework.dart';
@@ -74,7 +75,7 @@ class _ProjectsPageState extends State<ProjectsPage> {
                               onLiveDemo: () {
                                 // You can implement dynamic logic here too, if needed
                               },
-                            ).w(400)),
+                            ).w(400).fadeInUp()) ,
 
                     // CusotmProjectCard(
                     //       projectName: project.projectName,
