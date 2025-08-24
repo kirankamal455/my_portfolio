@@ -38,7 +38,7 @@ class _HomePageState extends State<HomePage>
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(
-          horizontal: context.screenWidth * 0.12, vertical: 30),
+          horizontal: context.screenWidth * 0.11, vertical: 30),
       child: ResponsiveRowColumn(
         columnSpacing: 60,
         rowSpacing: 60,
@@ -54,7 +54,7 @@ class _HomePageState extends State<HomePage>
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
+                  children: [Gap(50),
                     DefaultTextStyle(
                       style: const TextStyle(
                         fontSize: 20.0,

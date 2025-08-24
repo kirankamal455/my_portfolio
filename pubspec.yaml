@@ -55,6 +55,7 @@ dependencies:
       url: https://github.com/Shreemanarjun/VelocityX.git
       ref: stable
   font_awesome_flutter: ^10.9.0
+  cached_network_image: ^3.4.1
 
 dev_dependencies:
   flutter_test:

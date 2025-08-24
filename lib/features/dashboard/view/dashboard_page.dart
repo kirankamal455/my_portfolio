@@ -335,9 +335,76 @@ class _DashboardPageState extends State<DashboardPage>
             child: Selectable(child: Consumer(
               builder: (context, ref, child) {
                 final List<Project> mockProjects = [
+
+                Project(
+                  id: 1,
+                  title: "Federal Bank Certificate Portal",
+                  description:
+                  "A secure web portal for Federal Bank customers to easily access and download various certificates ",
+                  imageUrl:
+                  "https://i.postimg.cc/DwxMwLMj/Screenshot-2025-08-24-170920.png",
+                  techChips: ["Flutter", "GraphQL", "Hive"],
+                  features: [
+                    "Download Balance Certificates",
+                    "Loan Certificate Access",
+                    "Credit Card Statement Downloads",
+                    "Repayment Management",
+                    "Customer Login",
+                    "Branch Login"
+                  ],launchUrl: "https://accountopen.federalbank.co.in/CertificatePortal/Index",
+                  downloads: "100K+ downloads",
+                  platform: "Web",
+                  rating: 4.7,
+                ),
                   Project(
-                    id: 1,
-                    title: "Aeon Wallet",
+                    id: 2,
+                    title: "Symphony",
+                    description:
+                    "Symphony is a modern E-commerce mobile application that allows users to browse products, place ordersa and add items to the cart, track deliveries ",
+                    imageUrl:
+                    "https://i.postimg.cc/9QLG7pV9/shared-image.jpg",
+                    techChips: ["Flutter", "Firebase", "Riverpod"],
+                    features: [
+                      "Place Orders",
+                      "Add to Cart",
+                      "Track Product Delivery",
+                      "Manage Wishlist",
+                      //"Secure Payments"
+                    ],launchUrl: "https://lucidplus.com/lp-symphony.aspx",
+                    downloads: "200K+ downloads",
+                    platform: "Android & iOS",
+                    rating: 4.6,
+                  ),
+                  Project(
+                    id: 3,
+                    title: "Ensemble Manager",
+                    description:
+                    "Smart asset management app to track, audit, and control IT & physical assets across their lifecycle.",
+                    imageUrl:
+                    "https://images.pexels.com/photos/6476589/pexels-photo-6476589.jpeg?auto=compress&cs=tinysrgb&w=800",
+                    techChips: ["Flutter", "Bloc", "Firebase", "REST API", "QR Code"],
+                    launchUrl: "https://lucidplus.com/lp-ensemble.aspx",
+                    features: [
+                      "End-to-End Asset Lifecycle Management",
+
+                      "AMC & Warranty Tracking",
+                      "Asset Onboarding & Deployment",
+                      "Accurate Asset Auditing & Compliance",
+                      "QR / Barcode Generation",
+                    //  "Geo-tagging & Visual Verification",
+                    //  "Real-time Alerts & Monitoring",
+
+
+                    ],
+                    downloads: "50K+ enterprise users",
+                    platform: "Android, iOS, Web",
+                    rating: 4.6,
+                  ),
+
+
+                  Project(
+                    id: 4,
+                    title: "E-Wallet",
                     description:
                         "Secure e-wallet solution with support for QR payments, recurring billing, balance management, and strong security features.",
                     imageUrl:
@@ -348,86 +415,37 @@ class _DashboardPageState extends State<DashboardPage>
                       "Root Detection",
                       "Bill Splitting",
                       "Smart Notifications"
-                    ],
+                    ],launchUrl: "",
                     downloads: "1M+ downloads",
                     platform: "Android",
                     rating: 3.8,
                   ),
-                  Project(
-                    id: 2,
-                    title: "Taskify",
-                    description:
-                        "Smart task manager with real-time collaboration and Kanban boards for teams.",
-                    imageUrl:
-                        "https://zmozkivkhopoeutpnnum.supabase.co/storage/v1/object/public/images/aeon.webp",
-                    techChips: ["Flutter", "Firebase", "Riverpod"],
-                    features: [
-                      "Team Collaboration",
-                      "Realtime Sync",
-                      "Deadline Reminders",
-                      "Kanban View"
-                    ],
-                    downloads: "200K+ downloads",
-                    platform: "Android & iOS",
-                    rating: 4.6,
-                  ),
-                  Project(
-                    id: 3,
-                    title: "FitTrack Pro",
-                    description:
-                        "Track your workouts, calories, and goals. Sync with wearables and monitor progress.",
-                    imageUrl:
-                        "https://images.pexels.com/photos/4968633/pexels-photo-4968633.jpeg?auto=compress&cs=tinysrgb&w=800",
-                    techChips: ["Flutter", "Bloc", "Firebase"],
-                    features: [
-                      "Workout Logging",
-                      "Calorie Tracker",
-                      "Google Fit Integration",
-                      "Progress Charts"
-                    ],
-                    downloads: "300K+ downloads",
-                    platform: "Android",
-                    rating: 4.3,
-                  ),
-                  Project(
-                    id: 4,
-                    title: "EduMate",
-                    description:
-                        "An education platform offering video courses, quizzes, and certificates.",
-                    imageUrl:
-                        "https://zmozkivkhopoeutpnnum.supabase.co/storage/v1/object/public/images//hxpert.webp",
-                    techChips: ["Flutter", "GraphQL", "Hive"],
-                    features: [
-                      "Video Courses",
-                      "Live Quizzes",
-                      "Certificate Generator",
-                      "Student Dashboard"
-                    ],
-                    downloads: "100K+ downloads",
-                    platform: "Android & Web",
-                    rating: 4.7,
-                  ),
+
+
+
                   Project(
                     id: 5,
-                    title: "NewsFlash",
+                    title: "Lp Customer Onboarding",
                     description:
-                        "Breaking news app with customizable categories, notifications, and offline reading.",
+                    "A digital onboarding app with face verification, document expiry tracking, and OCR-based detail extraction",
                     imageUrl:
-                        "https://zmozkivkhopoeutpnnum.supabase.co/storage/v1/object/public/images/aeon.webp",
+                    "https://zmozkivkhopoeutpnnum.supabase.co/storage/v1/object/public/images/aeon.webp",
                     techChips: ["Flutter", "Dio", "Provider"],
                     features: [
-                      "Real-time Updates",
-                      "Offline Reading",
-                      "Category Filtering",
-                      "Push Notifications"
-                    ],
+                      "Face Detection with Head Movement Validation",
+                      "OCR-based Document Scanning",
+                      "Auto-fill Name, Address & DOB",
+                      "Document Expiry Management",
+                      "Secure Customer Onboarding"
+                    ],launchUrl: "",
                     downloads: "500K+ downloads",
                     platform: "Android & iOS",
                     rating: 4.4,
                   ),
+
                   Project(
                     id: 6,
-                    title: "Travelly",
+                    title: "Escort Kubota",
                     description:
                         "Plan trips, book hotels, and explore local experiences — all in one travel app.",
                     imageUrl:
@@ -438,7 +456,7 @@ class _DashboardPageState extends State<DashboardPage>
                       "Local Guides",
                       "Trip Itinerary",
                       "Offline Maps"
-                    ],
+                    ],launchUrl: "",
                     downloads: "750K+ downloads",
                     platform: "Android",
                     rating: 4.5,
@@ -456,7 +474,7 @@ class _DashboardPageState extends State<DashboardPage>
                       "Spending Categories",
                       "Visual Reports",
                       "Secure Backup"
-                    ],
+                    ],launchUrl: "",
                     downloads: "900K+ downloads",
                     platform: "Android & iOS",
                     rating: 4.8,
@@ -465,9 +483,9 @@ class _DashboardPageState extends State<DashboardPage>
 
                 var userProfile = UserProfileResponseModel(
                   name: "Kiran Kamal",
-                  address: "1234 Elm Street, Springfield",
-                  phone: "+1 555-1234",
-                  email: "john.doe@example.com",
+                  address: "Puthuparmabil",
+                  phone: "+918113887254",
+                  email: "Kirankamal45@gmail.com",
                   image: "https://example.com/images/john_doe.jpg",
                   projects: mockProjects,
                 );
@@ -477,12 +495,12 @@ class _DashboardPageState extends State<DashboardPage>
                 //   data: (userProfile) {
                 return Column(
                   children: [
-                    Gap(20),
+                    Gap(60),
                     Padding(
                       padding: const EdgeInsets.all(15),
                       child: GlassCardSample(
                         height: 900,
-                        width: context.screenWidth * 0.9,
+                        width: context.screenWidth * 0.86,
                         child: HomePage(
                           key: homePageKey,
                           userProfileResponseModel: userProfile,
@@ -552,8 +570,6 @@ class GlassCardSample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
-
     return GlassContainer.frostedGlass(
       height: height,
       width: width,
@@ -584,7 +600,7 @@ class GlassCardSample extends StatelessWidget {
       borderRadius: BorderRadius.circular(25.0),
       //padding: EdgeInsets.all(16.0),
 
-      borderColor: isDark
+      borderColor: context.isDarkMode
           ? Colors.white.withOpacity(0.3)
           : Colors.black.withOpacity(0.1),
 

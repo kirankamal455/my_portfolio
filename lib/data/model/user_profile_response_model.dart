@@ -176,8 +176,8 @@ class Project {
   final String downloads;
   final String platform;
   final double rating;
-
-  Project( {required this.id,
+  final String launchUrl;
+  Project(   {required this.id,required this.launchUrl,
     required this.title,
     required this.description,
     required this.imageUrl,
@@ -200,7 +200,7 @@ class Project {
       platform: map['platform'] ?? '',
       rating: (map['rating'] is int)
           ? (map['rating'] as int).toDouble()
-          : (map['rating'] ?? 0.0), id: 2,
+          : (map['rating'] ?? 0.0), id: 2, launchUrl: '',
     );
   }
 

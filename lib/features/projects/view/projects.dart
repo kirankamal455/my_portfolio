@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
+import 'package:url_launcher/url_launcher.dart';
 import 'package:kiran_portfolio/features/projects/controller/project_details_pod.dart';
 import 'package:kiran_portfolio/features/projects/view/widgets/custom_project_card.dart';
 import 'package:kiran_portfolio/shared/extension/fade_extenstion.dart';
@@ -21,18 +21,28 @@ class ProjectsPage extends StatefulWidget {
   State<ProjectsPage> createState() => _ProjectsPageState();
 }
 
-class _ProjectsPageState extends State<ProjectsPage> {
-  bool _isHovered = false;
+class _ProjectsPageState extends State<ProjectsPage>  with AutomaticKeepAliveClientMixin {
   @override
-  Widget build(BuildContext context) {
-    return [
-      const CustomSectionHeading(headingName: "Projects"),
+  bool get wantKeepAlive => true;
+
+  void launchURL(String url) async {
+
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+  @override
+  Widget build(BuildContext context) {super.build(context);
+  return [
+      const CustomSectionHeading(headingName: "Projects").fadeInUp(),
       "Here are few samples of my previous work :)"
           .text
           .color(Colors.grey)
           .xl
           .make()
-          .pOnly(top: 10)
+          .pOnly(top: 10).fadeInUp()
       // .fadeInUp(),
       ,
       widget.userProfileResponseModel.projects.isNotEmpty
@@ -58,11 +68,12 @@ class _ProjectsPageState extends State<ProjectsPage> {
                     //   :
                     Wrap(
                   // alignment: WrapAlignment.center,
-                  runSpacing: 8.0,
-                  spacing: 15,
+                  // runSpacing: 8.0,
+                  // spacing: 15,
                   children: [
                     ...widget.userProfileResponseModel.projects
                         .map((project) => AeonWalletCard(
+                              key: ValueKey(project.id),
                               cardId: project.id,
                               title: project.title,
                               description: project.description,
@@ -73,31 +84,11 @@ class _ProjectsPageState extends State<ProjectsPage> {
                               platform: project.platform,
                               rating: project.rating,
                               onLiveDemo: () {
-                                // You can implement dynamic logic here too, if needed
-                              },
-                            ).w(400).fadeInUp()) ,
+                                launchURL(project.launchUrl);
 
-                    // CusotmProjectCard(
-                    //       projectName: project.projectName,
-                    //       projectDescription: project.description,
-                    //     )),
-                    //.fadeInUp(offset: 0),
-                    // const CusotmProjectCard(
-                    //   projectName: 'Project 2',
-                    //   projectDescription: 'Project Description 2',
-                    // ).fadeInUp(offset: 50),
-                    // const CusotmProjectCard(
-                    //   projectName: 'Project 3',
-                    //   projectDescription: 'Project Description 3',
-                    // ).fadeInUp(offset: 100),
-                    // const CusotmProjectCard(
-                    //   projectName: 'Project 4',
-                    //   projectDescription: 'Project Description 4',
-                    // ).fadeInUp(offset: 150),
-                    // const CusotmProjectCard(
-                    //   projectName: 'Project 5',
-                    //   projectDescription: 'Project Description 5',
-                    // ).fadeInUp(offset: 100),
+
+                              },
+                            ).w(400).fadeInRight()),
                   ],
                 ).pOnly(top: 10);
               },

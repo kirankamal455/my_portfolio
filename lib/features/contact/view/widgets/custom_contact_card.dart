@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:hovering/hovering.dart';
+import 'package:kiran_portfolio/shared/widget/hover_card.dart';
 
 import 'package:velocity_x/velocity_x.dart';
 
@@ -22,7 +23,9 @@ class CustomContactCard extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return GlassCardSample(
+    return  HoverCard(
+        cardId: tittle,
+        child: GlassCardSample(
       height: 230,
       width: 300,
       child: InkWell(
@@ -74,6 +77,6 @@ class CustomContactCard extends ConsumerWidget {
           },
         ).h(200).w(320).p(10),
       ),
-    ).pSymmetric(v: 10);
+    ).pSymmetric(v: 10,h: 30));
   }
 }

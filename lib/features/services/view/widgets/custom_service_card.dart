@@ -5,6 +5,7 @@ import 'package:gap/gap.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../../../../core/gen/fonts.gen.dart';
+import '../../../../shared/widget/hover_card.dart';
 import '../../../dashboard/view/dashboard_page.dart';
 import '../../controller/service_card_hover_pod.dart';
 
@@ -19,7 +20,9 @@ class CustomServiceCardCard extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return InkWell(
+    return  HoverCard(
+        cardId: tittle,
+        child: InkWell(
       hoverColor: Colors.transparent,
       splashColor: Colors.transparent,
       highlightColor: Colors.transparent,
@@ -51,6 +54,6 @@ class CustomServiceCardCard extends ConsumerWidget {
           );
         },
       ),
-    ).pSymmetric(v: 10);
+        )).pSymmetric(v: 10,h: 10);
   }
 }

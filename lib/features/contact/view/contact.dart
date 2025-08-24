@@ -5,6 +5,7 @@ import 'package:gap/gap.dart';
 import 'package:kiran_portfolio/data/model/user_profile_response_model.dart';
 import 'package:kiran_portfolio/features/contact/controller/contact_details_pod.dart';
 import 'package:kiran_portfolio/features/contact/view/widgets/custom_contact_card.dart';
+import 'package:kiran_portfolio/shared/extension/fade_extenstion.dart';
 import 'package:kiran_portfolio/shared/widget/custom_text_heading.dart';
 
 import 'package:responsive_framework/responsive_framework.dart';
@@ -17,7 +18,7 @@ class ContactPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return [Gap(30),
-      const CustomSectionHeading(headingName: "Get in Touch"),
+      const CustomSectionHeading(headingName: "Get in Touch").fadeInUp(),
       // "Get in Touch"
       //     .text
       //     .xl6
@@ -56,7 +57,7 @@ class ContactPage extends StatelessWidget {
                                 : Icons.email,
                         tittle: e.tittle,
                         subtittle: e.Subtittle,
-                      )
+                      ).fadeInRight()
                       
                       // .fadeInUp(
                       //     offset: e.type == 0
