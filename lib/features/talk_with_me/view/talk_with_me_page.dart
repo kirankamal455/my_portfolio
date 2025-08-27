@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:kiran_portfolio/core/gen/fonts.gen.dart';
 import 'package:kiran_portfolio/features/talk_with_me/view/widgets/custom_interest_widget.dart';
+import 'package:kiran_portfolio/shared/extension/fade_extenstion.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -70,8 +71,8 @@ class TalkWithMePage extends StatelessWidget {
                 ],
               ).w(500)
               //.fadeInUp(),
-            ].vStack(crossAlignment: CrossAxisAlignment.start).box.make(),
-          ),
+            ].vStack(crossAlignment: CrossAxisAlignment.start).box.make().fadeInLeft(),
+          ) ,
           ResponsiveRowColumnItem(
             child: [
               const Gap(10),
@@ -193,7 +194,7 @@ class TalkWithMePage extends StatelessWidget {
                 .vStack(crossAlignment: CrossAxisAlignment.stretch)
                 .box
                 .width(400)
-                .make(),
+                .make().fadeInRight(),
           ),
         ],
       ).p(10),

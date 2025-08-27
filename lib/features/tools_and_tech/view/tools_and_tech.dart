@@ -34,59 +34,59 @@ class _ToolsAndTechState extends State<ToolsAndTech> {
               imagePath: MyAssets.images.toolsImages.flutter.path,
               imageName: 'Flutter',
             )
-             .fadeInRight(milliseconds: 500, offset: 0 ),
+             .fadeInRight(  ),
 
             SquareWidget(
               imagePath: MyAssets.images.toolsImages.dart.path,
               imageName: 'Dart',
             )
-            .fadeInRight(milliseconds: 600, offset: 50),
+            .fadeInRight( ),
 
             SquareWidget(
               imagePath: MyAssets.images.toolsImages.python.path,
               imageName: 'Python',
             )
-             .fadeInRight(milliseconds: 700, offset: 100),
+             .fadeInRight( ),
 
             SquareWidget(
               imagePath: MyAssets.images.toolsImages.firebase.path,
               imageName: 'Firebase',
             )
-             .fadeInRight(milliseconds: 800, offset: 150),
+             .fadeInRight( ),
 
             SquareWidget(
               imagePath: MyAssets.images.toolsImages.git.path,
               imageName: 'Git',
-            )  .fadeInRight(milliseconds: 900, offset: 200),
+            )  .fadeInRight( ),
 
             SquareWidget(
               imagePath: MyAssets.images.toolsImages.github.path,
               imageName: 'Github',
             )
-         .fadeInRight(milliseconds: 1000, offset: 250),
+         .fadeInRight( ),
 
             SquareWidget(
               imagePath: MyAssets.images.toolsImages.aws.path,
               imageName: 'AWS',
             )
-           .fadeInRight(milliseconds: 1100, offset: 300),
+           .fadeInRight( ),
             SquareWidget(
               imagePath: MyAssets.images.toolsImages.vscode.path,
               imageName: 'Vs Code',
             )
-             .fadeInRight(milliseconds: 1200, offset: 350),
+             .fadeInRight( ),
 
             SquareWidget(
               imagePath: MyAssets.images.toolsImages.androidStudio.path,
               imageName: 'Android Studio',
             )
-            .fadeInRight(milliseconds: 1300, offset: 400),
+            .fadeInRight( ),
 
             SquareWidget(
               imagePath: MyAssets.images.toolsImages.figma.path,
               imageName: 'Figma',
             )
-           .fadeInRight(milliseconds: 1400, offset: 450),
+           .fadeInRight( ),
           ],
         ).pOnly(top: 20),
       ].vStack(),

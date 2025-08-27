@@ -27,6 +27,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../../../data/model/user_profile_response_model.dart';
+import '../../experience/view/experience_veiw.dart';
 import '../../theme_segmented_btn/view/theme_segmented_btn.dart';
 
 @RoutePage(
@@ -193,143 +194,146 @@ class _DashboardPageState extends State<DashboardPage>
             ],
           ),
         ),
-        appBar: PreferredSize(
-          preferredSize: const Size(300, 40),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              ResponsiveVisibility(
-                visible: false,
-                visibleConditions: const [
-                  Condition.equals(name: TABLET),
-                  Condition.equals(name: MOBILE),
-                  Condition.equals(name: 'MOBILE_SMALL')
-                ],
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: IconButton(
-                    onPressed: () {
-                      _scaffoldKey.currentState!.openDrawer();
-                    },
-                    icon: const Icon(Icons.menu),
-                  ),
-                ),
-              ),
-              Spacer(),
-              ThemeToggleButton(),
-              // const ResponsiveVisibility(
-              //   visible: false,
-              //   visibleConditions: [Condition.largerThan(name: TABLET)],
-              //   child: Padding(
-              //     padding: EdgeInsets.all(8.0),
-              //     child: Text(
-              //       "KIRAN",
-              //       style: TextStyle(
-              //         fontSize: 18,
-              //         fontWeight: FontWeight.w800,
-              //         fontFamily: FontFamily.agustina,
-              //       ),
-              //     ),
-              //   ),
-              // ),
-              // const Spacer(),
-              // const ResponsiveVisibility(
-              //   visible: false,
-              //   visibleConditions: [
-              //     Condition.equals(name: TABLET),
-              //     Condition.equals(name: MOBILE),
-              //     Condition.equals(name: 'MOBILE_SMALL')
-              //   ],
-              //   child: Padding(
-              //     padding: EdgeInsets.all(8.0),
-              //     child: Text(
-              //       "KIRAN",
-              //       style: TextStyle(
-              //         fontSize: 18,
-              //         fontWeight: FontWeight.w800,
-              //         fontFamily: FontFamily.agustina,
-              //       ),
-              //     ),
-              //   ),
-              // ),
+        appBar: CustomAppBar(  startDownload: startDownload, homePageKey: homePageKey, aboutMePageKey: aboutMePageKey, servicePageKey: servicePageKey, projectPageKey: projectPageKey, contactPageKey: contactPageKey),
 
-              // ResponsiveVisibility(
-              //   visible: false,
-              //   visibleConditions: const [
-              //     Condition.largerThan(name: TABLET),
-              //   ],
-              //   child: Padding(
-              //     padding: const EdgeInsets.all(13),
-              //     child: Row(
-              //       children: [
-              //         TextButton(
-              //           onPressed: () {
-              //             Scrollable.ensureVisible(
-              //               homePageKey.currentContext!,
-              //               duration: const Duration(milliseconds: 700),
-              //               curve: Curves.easeInOut,
-              //             );
-              //           },
-              //           child: const Text("HOME"),
-              //         ),
-              //         const Gap(14),
-              //         TextButton(
-              //           onPressed: () {
-              //             Scrollable.ensureVisible(
-              //               aboutMePageKey.currentContext!,
-              //               duration: const Duration(milliseconds: 700),
-              //               curve: Curves.easeInOut,
-              //             );
-              //           },
-              //           child: const Text("ABOUT"),
-              //         ),
-              //         const Gap(14),
-              //         TextButton(
-              //           onPressed: () {
-              //             Scrollable.ensureVisible(
-              //               servicePageKey.currentContext!,
-              //               duration: const Duration(milliseconds: 700),
-              //               curve: Curves.easeInOut,
-              //             );
-              //           },
-              //           child: const Text("SERVICES"),
-              //         ),
-              //         const Gap(14),
-              //         TextButton(
-              //           onPressed: () {
-              //             Scrollable.ensureVisible(
-              //               projectPageKey.currentContext!,
-              //               duration: const Duration(milliseconds: 700),
-              //               curve: Curves.easeInOut,
-              //             );
-              //           },
-              //           child: const Text("PROJECTS"),
-              //         ),
-              //         const Gap(14),
-              //         TextButton(
-              //           onPressed: () {
-              //             Scrollable.ensureVisible(
-              //               contactPageKey.currentContext!,
-              //               duration: const Duration(milliseconds: 700),
-              //               curve: Curves.easeInOut,
-              //             );
-              //           },
-              //           child: const Text("CONTACTS"),
-              //         ),
-              //         const Gap(14),
-              //         OutlinedButton(
-              //           onPressed: () {
-              //             startDownload();
-              //           },
-              //           child: const Text("RESUME"),
-              //         ),
-              //       ],
-              //     ),
-              //   ),
-              // ),
-            ],
-          ).pOnly(top: 50),
-        ),
+        // PreferredSize(
+        //   preferredSize: const Size(300, 40),
+        //   child: Row(
+        //     crossAxisAlignment: CrossAxisAlignment.end,
+        //     children: [
+        //       ResponsiveVisibility(
+        //         visible: false,
+        //         visibleConditions: const [
+        //           Condition.equals(name: TABLET),
+        //           Condition.equals(name: MOBILE),
+        //           Condition.equals(name: 'MOBILE_SMALL')
+        //         ],
+        //         child: Padding(
+        //           padding: const EdgeInsets.all(8.0),
+        //           child: IconButton(
+        //             onPressed: () {
+        //               _scaffoldKey.currentState!.openDrawer();
+        //             },
+        //             icon: const Icon(Icons.menu,color: Colors.white,),
+        //           ),
+        //         ),
+        //       ),
+        //       "Portfolio".text.size(100).white.make(),
+        //       Spacer(),
+        //       ThemeToggleButton(),
+        //       // const ResponsiveVisibility(
+        //       //   visible: false,
+        //       //   visibleConditions: [Condition.largerThan(name: TABLET)],
+        //       //   child: Padding(
+        //       //     padding: EdgeInsets.all(8.0),
+        //       //     child: Text(
+        //       //       "KIRAN",
+        //       //       style: TextStyle(
+        //       //         fontSize: 18,
+        //       //         fontWeight: FontWeight.w800,
+        //       //         fontFamily: FontFamily.agustina,
+        //       //       ),
+        //       //     ),
+        //       //   ),
+        //       // ),
+        //       // const Spacer(),
+        //       // const ResponsiveVisibility(
+        //       //   visible: false,
+        //       //   visibleConditions: [
+        //       //     Condition.equals(name: TABLET),
+        //       //     Condition.equals(name: MOBILE),
+        //       //     Condition.equals(name: 'MOBILE_SMALL')
+        //       //   ],
+        //       //   child: Padding(
+        //       //     padding: EdgeInsets.all(8.0),
+        //       //     child: Text(
+        //       //       "KIRAN",
+        //       //       style: TextStyle(
+        //       //         fontSize: 18,
+        //       //         fontWeight: FontWeight.w800,
+        //       //         fontFamily: FontFamily.agustina,
+        //       //       ),
+        //       //     ),
+        //       //   ),
+        //       // ),
+        //
+        //       // ResponsiveVisibility(
+        //       //   visible: false,
+        //       //   visibleConditions: const [
+        //       //     Condition.largerThan(name: TABLET),
+        //       //   ],
+        //       //   child: Padding(
+        //       //     padding: const EdgeInsets.all(13),
+        //       //     child: Row(
+        //       //       children: [
+        //       //         TextButton(
+        //       //           onPressed: () {
+        //       //             Scrollable.ensureVisible(
+        //       //               homePageKey.currentContext!,
+        //       //               duration: const Duration(milliseconds: 700),
+        //       //               curve: Curves.easeInOut,
+        //       //             );
+        //       //           },
+        //       //           child: const Text("HOME"),
+        //       //         ),
+        //       //         const Gap(14),
+        //       //         TextButton(
+        //       //           onPressed: () {
+        //       //             Scrollable.ensureVisible(
+        //       //               aboutMePageKey.currentContext!,
+        //       //               duration: const Duration(milliseconds: 700),
+        //       //               curve: Curves.easeInOut,
+        //       //             );
+        //       //           },
+        //       //           child: const Text("ABOUT"),
+        //       //         ),
+        //       //         const Gap(14),
+        //       //         TextButton(
+        //       //           onPressed: () {
+        //       //             Scrollable.ensureVisible(
+        //       //               servicePageKey.currentContext!,
+        //       //               duration: const Duration(milliseconds: 700),
+        //       //               curve: Curves.easeInOut,
+        //       //             );
+        //       //           },
+        //       //           child: const Text("SERVICES"),
+        //       //         ),
+        //       //         const Gap(14),
+        //       //         TextButton(
+        //       //           onPressed: () {
+        //       //             Scrollable.ensureVisible(
+        //       //               projectPageKey.currentContext!,
+        //       //               duration: const Duration(milliseconds: 700),
+        //       //               curve: Curves.easeInOut,
+        //       //             );
+        //       //           },
+        //       //           child: const Text("PROJECTS"),
+        //       //         ),
+        //       //         const Gap(14),
+        //       //         TextButton(
+        //       //           onPressed: () {
+        //       //             Scrollable.ensureVisible(
+        //       //               contactPageKey.currentContext!,
+        //       //               duration: const Duration(milliseconds: 700),
+        //       //               curve: Curves.easeInOut,
+        //       //             );
+        //       //           },
+        //       //           child: const Text("CONTACTS"),
+        //       //         ),
+        //       //         const Gap(14),
+        //       //         OutlinedButton(
+        //       //           onPressed: () {
+        //       //             startDownload();
+        //       //           },
+        //       //           child: const Text("RESUME"),
+        //       //         ),
+        //       //       ],
+        //       //     ),
+        //       //   ),
+        //       // ),
+        //     ],
+        //   ).pOnly(top: 50),
+
         body: SingleChildScrollView(
             controller: scrollController,
             child: Selectable(child: Consumer(
@@ -495,7 +499,7 @@ class _DashboardPageState extends State<DashboardPage>
                 //   data: (userProfile) {
                 return Column(
                   children: [
-                    Gap(60),
+                    Gap(80),
                     Padding(
                       padding: const EdgeInsets.all(15),
                       child: GlassCardSample(
@@ -512,6 +516,7 @@ class _DashboardPageState extends State<DashboardPage>
                     //       key: homePageKey,
                     //       userProfileResponseModel: userProfile,
                     //     ),),
+                    Experience(),
                     AboutMePage(
                       key: aboutMePageKey,
                     ),
@@ -551,8 +556,8 @@ class _DashboardPageState extends State<DashboardPage>
               //   ).objectCenter(),
               // ),
             ))),
-      ),
-    );
+
+    ));
   }
 }
 
@@ -607,4 +612,140 @@ class GlassCardSample extends StatelessWidget {
       child: child,
     );
   }
+}
+
+
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+
+  final VoidCallback startDownload;
+
+  // ✅ Add all section keys
+  final GlobalKey homePageKey;
+  final GlobalKey aboutMePageKey;
+  final GlobalKey servicePageKey;
+  final GlobalKey projectPageKey;
+  final GlobalKey contactPageKey;
+
+  const CustomAppBar({
+    super.key,
+
+    required this.startDownload,
+    required this.homePageKey,
+    required this.aboutMePageKey,
+    required this.servicePageKey,
+    required this.projectPageKey,
+    required this.contactPageKey,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return PreferredSize(
+      preferredSize: const Size.fromHeight(70),
+      child: Container(
+        color: Colors.transparent, // keep background clean
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+           Gap(50),
+            ResponsiveVisibility(
+              visible: false,
+              visibleConditions: const [
+                Condition.equals(name: MOBILE),
+                Condition.equals(name: TABLET),
+                Condition.equals(name: 'MOBILE_SMALL'),
+              ],
+              child: IconButton(
+                onPressed: () {
+                //  scaffoldKey.currentState?.openDrawer();
+                },
+                icon: const Icon(Icons.menu, color: Colors.white),
+              ),
+            ),
+
+            // Title / Logo
+            "Portfolio".text.size(28).bold.white.make(),
+
+            const Spacer(),
+
+            // Desktop Navigation
+            ResponsiveVisibility(
+              visible: false,
+              visibleConditions: const [
+                Condition.largerThan(name: TABLET),
+              ],
+              child: Row(
+                children: [
+                  _navButton("HOME", () {
+                    Scrollable.ensureVisible(
+                      homePageKey.currentContext!,
+                      duration: const Duration(milliseconds: 700),
+                      curve: Curves.easeInOut,
+                    );
+                  }),
+                  _navButton("ABOUT", () {
+                    Scrollable.ensureVisible(
+                      aboutMePageKey.currentContext!,
+                      duration: const Duration(milliseconds: 700),
+                      curve: Curves.easeInOut,
+                    );
+                  }),
+                  _navButton("SERVICES", () {
+                    Scrollable.ensureVisible(
+                      servicePageKey.currentContext!,
+                      duration: const Duration(milliseconds: 700),
+                      curve: Curves.easeInOut,
+                    );
+                  }),
+                  _navButton("PROJECTS", () {
+                    Scrollable.ensureVisible(
+                      projectPageKey.currentContext!,
+                      duration: const Duration(milliseconds: 700),
+                      curve: Curves.easeInOut,
+                    );
+                  }),
+                  _navButton("CONTACT", () {
+                    Scrollable.ensureVisible(
+                      contactPageKey.currentContext!,
+                      duration: const Duration(milliseconds: 700),
+                      curve: Curves.easeInOut,
+                    );
+                  }),
+                  const SizedBox(width: 12),
+                  OutlinedButton(
+                    onPressed: startDownload,
+                    child: const Text("RESUME"),
+                  ),
+                ],
+              ),
+            ),
+
+            const SizedBox(width: 12),
+
+            // Theme Toggle Button (always visible)
+            ThemeToggleButton(),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _navButton(String text, VoidCallback onPressed) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8),
+      child: TextButton(
+        onPressed: onPressed,
+        child: Text(
+          text,
+          style: const TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+      ),
+    );
+  }
+
+  @override
+  Size get preferredSize => const Size.fromHeight(70);
 }
