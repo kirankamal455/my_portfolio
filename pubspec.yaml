@@ -17,6 +17,8 @@ dependencies:
     sdk: flutter
 
   flutter_displaymode: ^0.6.0
+  particles_network: ^1.8.0
+  blurrycontainer: ^2.1.0
   flutter_localizations:
     sdk: flutter
   flutter_animate: ^4.5.2
@@ -25,6 +27,7 @@ dependencies:
   flutter_gen: ^5.11.0
   animated_text_kit: ^4.2.3
   carousel_slider: ^5.1.1
+  liquid_glass_renderer: ^0.1.1-dev.10
   animated_digit: ^3.3.1+2
   cross_file: ^0.3.4+2
   firebase_core:

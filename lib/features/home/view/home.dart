@@ -54,7 +54,8 @@ class _HomePageState extends State<HomePage>
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
-                  children: [Gap(50),
+                  children: [
+                    Gap(50),
                     DefaultTextStyle(
                       style: const TextStyle(
                         fontSize: 20.0,
@@ -114,7 +115,7 @@ class _HomePageState extends State<HomePage>
                               fontSize: 23,
                               fontWeight: FontWeight.bold,
                               fontFamily: FontFamily.poppins,
-                              color: context.primaryColor),
+                              color: Colors.red),
                           child: AnimatedTextKit(
                             animatedTexts: [
                               TyperAnimatedText(
@@ -159,29 +160,38 @@ class _HomePageState extends State<HomePage>
                           onTap: () => print("GitHub clicked"),
                         ),
                       ],
-                    ).w(400)
+                    ).w(400),Gap(30),
+                    VxBox(child: "VIEW MY WORK".text.bold.size(20).make().centered())
+                        .withGradient(LinearGradient(colors: [Colors.blue, Colors.purple]))
+                        .withRounded(value: 25)
+                        .width(200)
+                        .height(50)
+                        .make().p(10)
                   ],
                 ),
               ),
             ),
           ), // const Spacer(),
           ResponsiveRowColumnItem(
-              child: FadeInRight(
-            config: BaseAnimationConfig(
-              child: Container(
-                height: 280,
-                width: 400,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: NetworkImage(
-                        "https://media.istockphoto.com/id/839214266/photo/intense-portrait-of-a-man-with-beard.jpg?s=1024x1024&w=is&k=20&c=Ts9-sZrw4AumekOsYAdzCCNEGZ3GYiJnN0_pSpqiyuU="),
-                    fit: BoxFit.cover,
+            child: FadeInRight(
+              config: BaseAnimationConfig(
+                child: Container(
+                  height: 280,
+                  width: 280, // same height & width for a perfect circle
+                  padding: const EdgeInsets.symmetric(vertical: 4),
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                      alignment:
+                          Alignment.topCenter, // 🔹 ensures image is centered
+                      fit: BoxFit.cover, // 🔹 fills the circle properly
+                      image: AssetImage(R.ASSETS_IMAGES_PROFILE_JPG),
+                    ),
                   ),
-                  shape: BoxShape.circle,
                 ),
               ),
             ),
-          ))
+          )
         ],
       ),
     )

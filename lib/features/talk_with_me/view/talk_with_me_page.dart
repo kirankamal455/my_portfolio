@@ -4,6 +4,7 @@ import 'package:gap/gap.dart';
 import 'package:kiran_portfolio/core/gen/fonts.gen.dart';
 import 'package:kiran_portfolio/features/talk_with_me/view/widgets/custom_interest_widget.dart';
 import 'package:kiran_portfolio/shared/extension/fade_extenstion.dart';
+import 'package:kiran_portfolio/shared/widget/glass_card.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -14,7 +15,7 @@ class TalkWithMePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GlassCardSample(
+    return GlassCard(
       height:
           ResponsiveBreakpoints.of(context).smallerThan(DESKTOP) ? 900 : 500,
       width: context.screenWidth * 0.86,

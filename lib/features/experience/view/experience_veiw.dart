@@ -5,6 +5,7 @@ import 'package:gap/gap.dart';
 import 'package:kiran_portfolio/features/dashboard/view/dashboard_page.dart';
 import 'package:kiran_portfolio/shared/extension/fade_extenstion.dart';
 import 'package:kiran_portfolio/shared/widget/custom_text_heading.dart';
+import 'package:kiran_portfolio/shared/widget/glass_card.dart';
 import 'package:kiran_portfolio/shared/widget/hover_card.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -58,8 +59,8 @@ class StatCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return  HoverCard(
         cardId: label,
-        child:GlassCardSample(
-      height: 220,
+        child:GlassCard(
+      height: 270,
       width: 478,
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 40),
@@ -78,7 +79,7 @@ class StatCard extends StatelessWidget {
               //   value: value, // pass in a value like 2014
               // ),
               AnimatedDigitWidget( duration:   Duration(milliseconds: 2000),
-                  textStyle: TextStyle(fontSize: 60,fontWeight: FontWeight.bold, color: Colors.white),
+                  textStyle: TextStyle(fontSize: 60,fontWeight: FontWeight.bold, color:context.isDarkMode? Colors.white:Colors.black  ),
                   suffix: "+" ,
                   value: value),
               // Text(
@@ -95,7 +96,7 @@ class StatCard extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 30,
-                  color: Colors.grey[400],
+                  color:context.isDarkMode? Colors.white:Colors.black  ,
                 ),
               ),
             ],

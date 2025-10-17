@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
+import 'package:kiran_portfolio/shared/widget/glass_card.dart';
 
 import 'package:velocity_x/velocity_x.dart';
 
@@ -39,7 +40,7 @@ class CustomServiceCardCard extends ConsumerWidget {
       child: Consumer(
         builder: (_, WidgetRef ref, __) {
           final isHover = ref.watch(serviceCardHoverPod(tittle));
-          return GlassCardSample(
+          return GlassCard(
             height: 200,
             width: 300,
             child: [

@@ -5,6 +5,7 @@ import 'package:gap/gap.dart';
 import 'package:kiran_portfolio/core/gen/assets.gen.dart';
 import 'package:kiran_portfolio/core/gen/fonts.gen.dart';
 import 'package:kiran_portfolio/shared/extension/fade_extenstion.dart';
+import 'package:kiran_portfolio/shared/widget/glass_card.dart';
 
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -49,7 +50,7 @@ class AboutMePage extends StatelessWidget {
             ResponsiveRowColumnItem(
               rowFlex: 1,
               rowFit: FlexFit.tight,
-              child: GlassCardSample(
+              child: GlassCard(
                 height: ResponsiveBreakpoints.of(context).smallerThan(DESKTOP)
                     ? ResponsiveBreakpoints.of(context).smallerThan(TABLET) ?880:500
                     : 300,

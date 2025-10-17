@@ -5,6 +5,7 @@ import 'package:velocity_x/velocity_x.dart';
 
 import '../../features/dashboard/view/dashboard_page.dart';
 import '../../features/projects/controller/project_details_pod.dart';
+import 'glass_card.dart';
 import 'hover_card.dart' hide hoverPod;
 
 class AeonWalletCard extends ConsumerWidget {
@@ -39,9 +40,9 @@ class AeonWalletCard extends ConsumerWidget {
     // final hoverController = ref.watch(hoverPod(cardId).notifier);
 
     return HoverCard(
-        cardId:title,
+        cardId: title,
         child: VStack([
-          GlassCardSample(
+          GlassCard(
             height: 700,
             width: 400,
             child: VStack([
