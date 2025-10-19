@@ -43,7 +43,7 @@ class AeonWalletCard extends ConsumerWidget {
         cardId: title,
         child: VStack([
           GlassCard(
-            height: 700,
+           // height: 700,
             width: 400,
             child: VStack([
               // Top Image with rounded top corners

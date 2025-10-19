@@ -16,8 +16,8 @@ class TalkWithMePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GlassCard(
-      height:
-          ResponsiveBreakpoints.of(context).smallerThan(DESKTOP) ? 900 : 500,
+      // height:
+      //     ResponsiveBreakpoints.of(context).smallerThan(DESKTOP) ? 890 : 500,
       width: context.screenWidth * 0.86,
       child: ResponsiveRowColumn(
         columnSpacing: 30,
@@ -31,20 +31,30 @@ class TalkWithMePage extends StatelessWidget {
             child: [
               AnimatedTextKit(
                 totalRepeatCount: 4,
+                repeatForever: false,
                 animatedTexts: [
                   ColorizeAnimatedText(
                     'Lets discuss\non something cool together',
                     textStyle: const TextStyle(
-                        fontSize: 40,
-                        fontFamily: FontFamily.poppins,
-                        fontWeight: FontWeight.bold),
-                    colors: [
+                      fontSize: 40,
+                      fontFamily: FontFamily.poppins,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    colors: Theme.of(context).brightness == Brightness.dark
+                        ? [
                       Colors.purple,
                       Colors.blue,
                       Colors.yellow,
-                      Colors.white,
+                      Colors.grey,  // Silver color for dark mode
+                    ]
+                        : [
+                      Colors.purple,
+                      Colors.blue,
+                      Colors.yellow,
+                      Colors.white, // Original color for light mode
                     ],
-                  ),
+                  )
+
                 ],
                 isRepeatingAnimation: true,
                 onTap: () {
@@ -56,7 +66,8 @@ class TalkWithMePage extends StatelessWidget {
               "I'm interested in.."
                   .text
                   .bold
-                  .color(context.isDarkMode?Colors.white: context.primaryColor)
+                  .color(
+                      context.isDarkMode ? Colors.white : context.primaryColor)
                   .make(),
               const Gap(20),
               const Wrap(
@@ -72,8 +83,12 @@ class TalkWithMePage extends StatelessWidget {
                 ],
               ).w(500)
               //.fadeInUp(),
-            ].vStack(crossAlignment: CrossAxisAlignment.start).box.make().fadeInLeft(),
-          ) ,
+            ]
+                .vStack(crossAlignment: CrossAxisAlignment.start)
+                .box
+                .make()
+                .fadeInLeft(),
+          ),
           ResponsiveRowColumnItem(
             child: [
               const Gap(10),
@@ -195,10 +210,11 @@ class TalkWithMePage extends StatelessWidget {
                 .vStack(crossAlignment: CrossAxisAlignment.stretch)
                 .box
                 .width(400)
-                .make().fadeInRight(),
+                .make()
+                .fadeInRight(),
           ),
         ],
-      ).p(10),
+      ).pSymmetric(v: 20, h: 10),
     ).pSymmetric(h: 10);
   }
 }

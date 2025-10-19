@@ -51,9 +51,9 @@ class AboutMePage extends StatelessWidget {
               rowFlex: 1,
               rowFit: FlexFit.tight,
               child: GlassCard(
-                height: ResponsiveBreakpoints.of(context).smallerThan(DESKTOP)
-                    ? ResponsiveBreakpoints.of(context).smallerThan(TABLET) ?880:500
-                    : 300,
+                // height: ResponsiveBreakpoints.of(context).smallerThan(DESKTOP)
+                //     ? ResponsiveBreakpoints.of(context).smallerThan(TABLET) ?880:500
+                //     : 300,
                 width: context.screenWidth * 0.86,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
