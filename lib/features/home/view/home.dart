@@ -9,6 +9,7 @@ import 'package:kiran_portfolio/data/model/user_profile_response_model.dart';
 import 'package:kiran_portfolio/features/dashboard/widgets/custom_social_icon.dart';
 import 'package:kiran_portfolio/features/home/view/widgets/custom_socialmedia_icon.dart';
 import 'package:responsive_framework/responsive_framework.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../const/resource.dart';
@@ -16,7 +17,11 @@ import '../../../shared/widget/glass_card.dart';
 
 class HomePage extends StatefulWidget {
   final UserProfileResponseModel userProfileResponseModel;
-  const HomePage({super.key, required this.userProfileResponseModel});
+  final GlobalKey projectPageKey;
+  const HomePage(
+      {super.key,
+      required this.userProfileResponseModel,
+      required this.projectPageKey});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -36,8 +41,18 @@ class _HomePageState extends State<HomePage>
     });
   }
 
+  Future<void> launchURL(String url) async {
+    final uri = Uri.parse(url);
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri, mode: LaunchMode.externalApplication);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    final mode=context.isDarkMode;
     return Padding(
       padding: const EdgeInsets.all(15),
       child: GlassCard(
@@ -65,26 +80,21 @@ class _HomePageState extends State<HomePage>
                       children: [
                         Gap(50),
                         DefaultTextStyle(
-                          style: const TextStyle(
-                            fontSize: 20.0,
+                          style: TextStyle(
+                            color: context.isDarkMode ? Colors.white : Colors.black,
+                            fontFamily: FontFamily.montserrat,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 55,
                           ),
                           child: AnimatedTextKit(
                             animatedTexts: [
-                              WavyAnimatedText(
-                                'Hi There',
-                                textStyle: TextStyle(
-                                  color: context.isDarkMode
-                                      ? Colors.white
-                                      : Colors.black,
-                                  fontFamily: FontFamily.montserrat,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 55,
-                                ),
-                              ),
+                              WavyAnimatedText('Hi There'),
                             ],
                             isRepeatingAnimation: true,
                           ),
-                        ),
+                        )
+,
+
                         Text.rich(
                           TextSpan(
                             children: [
@@ -120,7 +130,7 @@ class _HomePageState extends State<HomePage>
                             const SizedBox(height: 100.0),
                             DefaultTextStyle(
                               style: TextStyle(
-                                fontSize: 23,
+                                fontSize: 20,
                                 fontWeight: FontWeight.bold,
                                 fontFamily: FontFamily.poppins,
                                 color: context.isDarkMode
@@ -153,23 +163,27 @@ class _HomePageState extends State<HomePage>
                           children: [
                             CustomSocialIcon(
                               iconData: FontAwesomeIcons.facebook,
-                              onTap: () => print("Facebook clicked"),
+                              onTap: () => launchURL(
+                                  "https://www.facebook.com/kirankamal45"),
                             ),
                             CustomSocialIcon(
                               iconData: FontAwesomeIcons.instagram,
-                              onTap: () => print("Instagram clicked"),
+                              onTap: () => launchURL(
+                                  "https://instagram.com/kirankamal45"),
                             ),
                             CustomSocialIcon(
-                              iconData: FontAwesomeIcons.linkedin,
-                              onTap: () => print("LinkedIn clicked"),
-                            ),
+                                iconData: FontAwesomeIcons.linkedin,
+                                onTap: () => launchURL(
+                                    "https://www.linkedin.com/in/kiran-kamal-055132174")),
                             CustomSocialIcon(
                               iconData: FontAwesomeIcons.whatsapp,
-                              onTap: () => print("WhatsApp clicked"),
+                              onTap: () => launchURL(
+                                  "https://wa.me/+918113887254"), // use full international format
                             ),
                             CustomSocialIcon(
                               iconData: FontAwesomeIcons.github,
-                              onTap: () => print("GitHub clicked"),
+                              onTap: () =>
+                                  launchURL("https://github.com/kirankamal455"),
                             ),
                           ],
                         ).w(400),
@@ -178,6 +192,7 @@ class _HomePageState extends State<HomePage>
                                 child: "VIEW MY WORK"
                                     .text
                                     .bold
+                                    .white
                                     .size(20)
                                     .make()
                                     .centered())
@@ -187,6 +202,13 @@ class _HomePageState extends State<HomePage>
                             .width(200)
                             .height(50)
                             .make()
+                            .onTap(
+                              () => Scrollable.ensureVisible(
+                                widget.projectPageKey.currentContext!,
+                                duration: const Duration(milliseconds: 700),
+                                curve: Curves.easeInOut,
+                              ),
+                            )
                             .p(10)
                       ],
                     ),

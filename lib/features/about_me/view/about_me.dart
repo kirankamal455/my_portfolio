@@ -206,6 +206,6 @@ class AboutMePage extends StatelessWidget {
       //       crossAlignment: CrossAxisAlignment.start,
       //     )
       //     .pSymmetric(h: 180)
-    ].vStack().box.make() ;
+    ].vStack().box.make().p(20) ;
   }
 }

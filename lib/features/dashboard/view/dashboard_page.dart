@@ -88,12 +88,18 @@ class _DashboardPageState extends State<DashboardPage>
                 final userProfile = controller.mockUserProfile();
                 return Stack(
                   children: [
-                    Positioned.fill(  // Ensures particles cover the whole screen
+                    Positioned.fill(
+                      // Ensures particles cover the whole screen
                       child: ParticlesFly(
                         height: 16000, // Use screen height
-                        width: MediaQuery.of(context).size.width,   // Use screen width
-                        connectDots: true,
-                        numberOfParticles: 700,
+                        width: MediaQuery.of(context)
+                            .size
+                            .width, // Use screen width
+                        numberOfParticles: 600, awayRadius: 150,// ✅ Keep < 800
+                        connectDots: true, // ✅ Disable for better performance
+                     //   isRandSize: true,
+                        isRandomColor: true,
+
                       ),
                     ),
                     // Positioned.fill(
@@ -110,6 +116,7 @@ class _DashboardPageState extends State<DashboardPage>
                             ? const Gap(10)
                             : const Gap(80),
                         HomePage(
+                          projectPageKey: projectKey,
                           key: homeKey,
                           userProfileResponseModel: userProfile,
                         ),

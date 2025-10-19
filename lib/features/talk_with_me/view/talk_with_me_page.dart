@@ -30,8 +30,8 @@ class TalkWithMePage extends StatelessWidget {
           ResponsiveRowColumnItem(
             child: [
               AnimatedTextKit(
-                totalRepeatCount: 4,
-                repeatForever: false,
+                totalRepeatCount: 1000,
+                repeatForever: true,
                 animatedTexts: [
                   ColorizeAnimatedText(
                     'Lets discuss\non something cool together',
@@ -42,19 +42,18 @@ class TalkWithMePage extends StatelessWidget {
                     ),
                     colors: Theme.of(context).brightness == Brightness.dark
                         ? [
-                      Colors.purple,
-                      Colors.blue,
-                      Colors.yellow,
-                      Colors.grey,  // Silver color for dark mode
-                    ]
+                            Colors.purple,
+                            Colors.blue,
+                            Colors.yellow,
+                            Colors.grey, // Silver color for dark mode
+                          ]
                         : [
-                      Colors.purple,
-                      Colors.blue,
-                      Colors.yellow,
-                      Colors.white, // Original color for light mode
-                    ],
+                            Colors.purple,
+                            Colors.blue,
+                            Colors.yellow,
+                            Colors.white, // Original color for light mode
+                          ],
                   )
-
                 ],
                 isRepeatingAnimation: true,
                 onTap: () {
@@ -70,16 +69,16 @@ class TalkWithMePage extends StatelessWidget {
                       context.isDarkMode ? Colors.white : context.primaryColor)
                   .make(),
               const Gap(20),
-              const Wrap(
+                Wrap(
                 runSpacing: 15,
                 spacing: 8,
                 children: [
-                  CutomIntresetWidget(intresetName: "Mobile Development"),
-                  CutomIntresetWidget(intresetName: "Flutter Web"),
-                  CutomIntresetWidget(intresetName: "Backend Development"),
-                  CutomIntresetWidget(intresetName: "Portfolio"),
-                  CutomIntresetWidget(intresetName: "UI/UX"),
-                  CutomIntresetWidget(intresetName: "Cloud Development")
+                  CutomIntresetWidget(interestName: "Mobile Development"),
+                  CutomIntresetWidget(interestName: "Flutter Web"),
+                  CutomIntresetWidget(interestName: "Backend Development"),
+                  CutomIntresetWidget(interestName: "Portfolio"),
+                  CutomIntresetWidget(interestName: "UI/UX"),
+                  CutomIntresetWidget(interestName: "Cloud Development")
                 ],
               ).w(500)
               //.fadeInUp(),
@@ -95,7 +94,7 @@ class TalkWithMePage extends StatelessWidget {
               TextField(
                 decoration: InputDecoration(
                   contentPadding: const EdgeInsets.all(12),
-                  fillColor: Colors.black54,
+                  fillColor: context.isDarkMode ? Colors.black54 : Colors.white,
                   filled: true,
                   hintText: "Your name",
                   enabledBorder: const OutlineInputBorder(
@@ -122,7 +121,7 @@ class TalkWithMePage extends StatelessWidget {
               TextField(
                 decoration: InputDecoration(
                   contentPadding: const EdgeInsets.all(12),
-                  fillColor: Colors.black54,
+                  fillColor: context.isDarkMode ? Colors.black54 : Colors.white,
                   filled: true,
                   hintText: "Your email",
                   // border: const OutlineInputBorder(
@@ -154,7 +153,7 @@ class TalkWithMePage extends StatelessWidget {
               TextField(
                 maxLines: 7,
                 decoration: InputDecoration(
-                  fillColor: Colors.black54,
+                  fillColor: context.isDarkMode ? Colors.black54 : Colors.white,
                   filled: true,
                   hintText: "Your message",
                   border: const OutlineInputBorder(
@@ -186,7 +185,7 @@ class TalkWithMePage extends StatelessWidget {
               ElevatedButton.icon(
                 style: ButtonStyle(
                   backgroundColor: WidgetStateProperty.all<Color>(
-                      context.isDarkMode ? Colors.white : Colors.black),
+                      context.isDarkMode ? Colors.white : context.primaryColor),
                   shape: WidgetStateProperty.all<RoundedRectangleBorder>(
                     RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),

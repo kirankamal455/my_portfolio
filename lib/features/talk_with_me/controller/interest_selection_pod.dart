@@ -1,14 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final intrestHoverSelectionPod =
-    StateProvider.autoDispose.family<bool, String>((ref, arg) {
-  return false;
-});
+// For hover
+final intrestHoverSelectionPod = StateProvider.family<bool, String>((ref, name) => false);
 
-// bool check({required String arg}) {
-//   if (arg == 'Mobile Development') {
-//     return true;
-//   } else {
-//     return false;
-//   }
-// }
+// For selected interests (global list)
+final selectedInterestsProvider = StateProvider<List<String>>((ref) => []);
