@@ -9,6 +9,7 @@ import 'package:kiran_portfolio/shared/widget/bacground_painter.dart';
 import 'package:kiran_portfolio/shared/widget/custom_app_bar.dart';
 import 'package:kiran_portfolio/shared/widget/drawer_menu.dart';
 import 'package:kiran_portfolio/shared/widget/glass_card.dart';
+import 'package:lottie/lottie.dart';
 import 'package:particles_fly/particles_fly.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:selectable/selectable.dart';
@@ -95,11 +96,10 @@ class _DashboardPageState extends State<DashboardPage>
                         width: MediaQuery.of(context)
                             .size
                             .width, // Use screen width
-                        numberOfParticles: 600, awayRadius: 150,// ✅ Keep < 800
+                        numberOfParticles: 600, awayRadius: 150, // ✅ Keep < 800
                         connectDots: true, // ✅ Disable for better performance
-                     //   isRandSize: true,
+                        //   isRandSize: true,
                         isRandomColor: true,
-
                       ),
                     ),
                     // Positioned.fill(
@@ -145,7 +145,15 @@ class _DashboardPageState extends State<DashboardPage>
               },
             ),
           ),
-        ),
+        ),floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+        // floatingActionButton: Container(
+        //   child: Lottie.asset(
+        //     'assets/animations/welcome_animation.json',
+        //     width: 150,
+        //     height: 150,
+        //     fit: BoxFit.fill,
+        //   ),
+        // ),
       ),
     );
   }

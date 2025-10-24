@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_animate_on_scroll/flutter_animate_on_scroll.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:kiran_portfolio/core/gen/assets.gen.dart';
 import 'package:kiran_portfolio/core/gen/fonts.gen.dart';
+import 'package:kiran_portfolio/data/provider/data_provider.dart';
 import 'package:kiran_portfolio/shared/extension/fade_extenstion.dart';
 import 'package:kiran_portfolio/shared/widget/glass_card.dart';
 
@@ -13,11 +15,12 @@ import 'package:velocity_x/velocity_x.dart';
 import '../../../shared/widget/custom_text_heading.dart';
 import '../../dashboard/view/dashboard_page.dart';
 
-class AboutMePage extends StatelessWidget {
+class AboutMePage extends ConsumerWidget {
   const AboutMePage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final aboutme = ref.watch(profileProvider);
     return [
       const CustomSectionHeading(headingName: "About Me").fadeInUp(),
       const Gap(50),
@@ -59,18 +62,13 @@ class AboutMePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    "Who am I?".text.xl3.make(),
-                    "I'm Kiran kamal ,a Flutter developer,Ui dessigner"
-                        .text
-                        .xl4
-                        .bold
+                    // "Who am I?".text.xl3.make(),
+                    aboutme.aboutMe.title.text.xl4.bold
                         .fontFamily(FontFamily.poppins)
                         .align(TextAlign.justify)
                         .make()
                         .pOnly(top: 15),
-                    "I'm a B-Tech graduate with Infomation Technology. I have been developing mobile apps for over 1.8 years now \nAs a Flutter developer, I specialize in building cross-platform applications that run smoothly on both Android and iOS devices, leveraging the power of Google's versatile UI toolkit. My expertise extends beyond mere functionality; I thrive on designing visually stunning user interfaces that not only captivate users but also enhance their interaction with the app."
-                        .text
-                        .xl2
+                    aboutme.aboutMe.subTitle.text.xl2
                         .fontFamily(FontFamily.montserrat)
                         .align(TextAlign.justify)
                         .make()
@@ -206,6 +204,6 @@ class AboutMePage extends StatelessWidget {
       //       crossAlignment: CrossAxisAlignment.start,
       //     )
       //     .pSymmetric(h: 180)
-    ].vStack().box.make().p(20) ;
+    ].vStack().box.make().p(20);
   }
 }

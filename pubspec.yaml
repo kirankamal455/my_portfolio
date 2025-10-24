@@ -63,6 +63,7 @@ dependencies:
   cached_network_image: ^3.4.1
   particles_fly: ^0.0.9
   url_launcher: ^6.3.2
+  lottie: ^3.3.2
 
 dev_dependencies:
   flutter_test:
@@ -111,6 +112,7 @@ flutter:
     - assets/images/tools_images/
     - assets/images/service_images/
     - assets/pdf/
+    - assets/animations/
   fonts:
     - family: Agustina
       fonts:

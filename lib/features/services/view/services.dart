@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:kiran_portfolio/data/provider/data_provider.dart';
 import 'package:kiran_portfolio/features/services/view/widgets/custom_service_card.dart';
 import 'package:kiran_portfolio/shared/extension/fade_extenstion.dart';
 
@@ -25,6 +26,7 @@ class ServicesPage extends StatelessWidget {
               child: Consumer(
         builder: (context, ref, child) {
           final data = ref.watch(serviceDetailsPod);
+          final services = ref.watch(profileProvider);
           return ResponsiveBreakpoints.of(context).smallerThan(MOBILE)
               ? CarouselSlider.builder(
                   options: CarouselOptions(autoPlay: true),
@@ -41,10 +43,10 @@ class ServicesPage extends StatelessWidget {
                   spacing: 16, // space between items
                   runSpacing: 16, // space between rows if wrapped
                   children: [
-                    ...data.map(
+                    ...services.services.map(
                       (e) => CustomServiceCardCard(
-                        tittle: e.tittle,
-                        imagePath: e.imagePath,
+                        tittle: e. label,
+                        imagePath: e.icon,
                       ).fadeInRight(),
                     )
                     // CustomServiceCardCard(

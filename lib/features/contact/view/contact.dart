@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:kiran_portfolio/data/model/user_profile_response_model.dart';
+import 'package:kiran_portfolio/data/provider/data_provider.dart';
 import 'package:kiran_portfolio/features/contact/controller/contact_details_pod.dart';
 import 'package:kiran_portfolio/features/contact/view/widgets/custom_contact_card.dart';
 import 'package:kiran_portfolio/shared/extension/fade_extenstion.dart';
@@ -17,7 +18,8 @@ class ContactPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return [Gap(30),
+    return [
+      Gap(30),
       const CustomSectionHeading(headingName: "Get in Touch").fadeInUp(),
       // "Get in Touch"
       //     .text
@@ -26,21 +28,22 @@ class ContactPage extends StatelessWidget {
       //     .fadeInUp(duration: const Duration(milliseconds: 1300), offset: 100),
       Gap(20),
       VxBox(child: Consumer(builder: (context, ref, child) {
-        final contactDetails = ref.watch(contactDetailsPod(userProfileResponseModel));
+        //final contactDetails = ref.watch(contactDetailsPod(userProfileResponseModel));
+        final contactDetails = ref.watch(profileProvider);
         return ResponsiveBreakpoints.of(context).smallerThan(MOBILE)
             ? CarouselSlider.builder(
                 options: CarouselOptions(autoPlay: true),
-                itemCount: contactDetails.length,
+                itemCount: contactDetails.getInTouch.length,
                 itemBuilder:
                     (BuildContext context, int itemIndex, int pageViewIndex) =>
                         CustomContactCard(
-                  icon: contactDetails[itemIndex].type == 0
+                  icon: contactDetails.getInTouch[itemIndex].icon == 'home'
                       ? Icons.home
-                      : contactDetails[itemIndex].type == 1
+                      : contactDetails.getInTouch[itemIndex].icon == "phone"
                           ? Icons.phone
                           : Icons.email,
-                  tittle: contactDetails[itemIndex].tittle,
-                  subtittle: contactDetails[itemIndex].Subtittle,
+                  tittle: contactDetails.getInTouch[itemIndex].title,
+                  subtittle: contactDetails.getInTouch[itemIndex].subTitle,
                 ),
               )
             : Wrap(
@@ -48,24 +51,23 @@ class ContactPage extends StatelessWidget {
                 spacing: 8.0,
                 runSpacing: 8.0,
                 children: [
-                    ...contactDetails.map(
-                      (e) => CustomContactCard(
-                        icon: e.type == 0
-                            ? Icons.home
-                            : e.type == 1
-                                ? Icons.phone
-                                : Icons.email,
-                        tittle: e.tittle,
-                        subtittle: e.Subtittle,
-                      ).fadeInRight()
-                      
-                      // .fadeInUp(
-                      //     offset: e.type == 0
-                      //         ? 0
-                      //         : e.type == 1
-                      //             ? 50
-                      //             : 100),
-                    )
+                    ...contactDetails.getInTouch.map((e) => CustomContactCard(
+                              icon: e.icon == 'home'
+                                  ? Icons.home
+                                  : e.icon == 'phone'
+                                      ? Icons.phone
+                                      : Icons.email,
+                              tittle: e.title,
+                              subtittle: e.subTitle,
+                            ).fadeInRight()
+
+                        // .fadeInUp(
+                        //     offset: e.type == 0
+                        //         ? 0
+                        //         : e.type == 1
+                        //             ? 50
+                        //             : 100),
+                        )
                   ]);
       })).make()
 

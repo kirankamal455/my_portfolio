@@ -54,9 +54,9 @@ class DashboardController {
         id: 1,
         title: "Federal Bank Certificate Portal",
         description:
-        "A secure web portal for Federal Bank customers to easily access and download various certificates.",
+            "A secure web portal for Federal Bank customers to easily access and download various certificates.",
         imageUrl:
-        "https://i.postimg.cc/DwxMwLMj/Screenshot-2025-08-24-170920.png",
+            "https://i.postimg.cc/DwxMwLMj/Screenshot-2025-08-24-170920.png",
         techChips: ["Flutter", "GraphQL", "Hive"],
         features: [
           "Download Balance Certificates",
@@ -67,7 +67,7 @@ class DashboardController {
           "Branch Login"
         ],
         launchUrl:
-        "https://accountopen.federalbank.co.in/CertificatePortal/Index",
+            "https://accountopen.federalbank.co.in/CertificatePortal/Index",
         downloads: "100K+ downloads",
         platform: "Web",
         rating: 4.7,
@@ -76,7 +76,7 @@ class DashboardController {
         id: 2,
         title: "Symphony",
         description:
-        "Symphony is a modern e-commerce mobile app that allows users to browse products, place orders, and track deliveries.",
+            "Symphony is a modern e-commerce mobile app that allows users to browse products, place orders, and track deliveries.",
         imageUrl: "https://i.postimg.cc/9QLG7pV9/shared-image.jpg",
         techChips: ["Flutter", "Firebase", "Riverpod"],
         features: [
@@ -94,9 +94,9 @@ class DashboardController {
         id: 3,
         title: "Ensemble Manager",
         description:
-        "Smart asset management app to track, audit, and control IT & physical assets across their lifecycle.",
+            "Smart asset management app to track, audit, and control IT & physical assets across their lifecycle.",
         imageUrl:
-        "https://images.pexels.com/photos/6476589/pexels-photo-6476589.jpeg?auto=compress&cs=tinysrgb&w=800",
+            "https://images.pexels.com/photos/6476589/pexels-photo-6476589.jpeg?auto=compress&cs=tinysrgb&w=800",
         techChips: ["Flutter", "Bloc", "Firebase", "REST API", "QR Code"],
         features: [
           "End-to-End Asset Lifecycle Management",
@@ -114,9 +114,9 @@ class DashboardController {
         id: 4,
         title: "E-Wallet",
         description:
-        "Secure e-wallet solution with support for QR payments, recurring billing, balance management, and strong security features.",
+            "Secure e-wallet solution with support for QR payments, recurring billing, balance management, and strong security features.",
         imageUrl:
-        "https://zmozkivkhopoeutpnnum.supabase.co/storage/v1/object/public/images/aeon.webp",
+            "https://zmozkivkhopoeutpnnum.supabase.co/storage/v1/object/public/images/aeon.webp",
         techChips: ["Flutter", "GetX", "Dio", "MVC"],
         features: [
           "Balance & QR Payments",
@@ -133,9 +133,9 @@ class DashboardController {
         id: 5,
         title: "LP Customer Onboarding",
         description:
-        "A digital onboarding app with face verification, document expiry tracking, and OCR-based detail extraction.",
+            "A digital onboarding app with face verification, document expiry tracking, and OCR-based detail extraction.",
         imageUrl:
-        "https://zmozkivkhopoeutpnnum.supabase.co/storage/v1/object/public/images/aeon.webp",
+            "https://zmozkivkhopoeutpnnum.supabase.co/storage/v1/object/public/images/aeon.webp",
         techChips: ["Flutter", "Dio", "Provider"],
         features: [
           "Face Detection with Head Movement Validation",
@@ -153,9 +153,9 @@ class DashboardController {
         id: 6,
         title: "Escort Kubota",
         description:
-        "Plan trips, book hotels, and explore local experiences — all in one travel app.",
+            "Plan trips, book hotels, and explore local experiences — all in one travel app.",
         imageUrl:
-        "https://zmozkivkhopoeutpnnum.supabase.co/storage/v1/object/public/images//hxpert.webp",
+            "https://zmozkivkhopoeutpnnum.supabase.co/storage/v1/object/public/images//hxpert.webp",
         techChips: ["Flutter", "Supabase", "GetX"],
         features: [
           "Flight & Hotel Booking",
@@ -172,9 +172,9 @@ class DashboardController {
         id: 7,
         title: "FinanceX",
         description:
-        "Personal finance app to manage expenses, analyze spending, and set budgets.",
+            "Personal finance app to manage expenses, analyze spending, and set budgets.",
         imageUrl:
-        "https://zmozkivkhopoeutpnnum.supabase.co/storage/v1/object/public/images//hxpert.webp",
+            "https://zmozkivkhopoeutpnnum.supabase.co/storage/v1/object/public/images//hxpert.webp",
         techChips: ["Flutter", "Riverpod", "SQLite"],
         features: [
           "Budget Planner",
@@ -197,4 +197,5 @@ class DashboardController {
       image: "https://example.com/images/john_doe.jpg",
       projects: mockProjects,
     );
-}}
+  }
+}

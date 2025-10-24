@@ -118,20 +118,20 @@ class _LoaderChildState extends State<LoaderChild>
         child: Stack(
           alignment: AlignmentDirectional.center,
           children: [
-            Center(
-              child: RotationTransition(
-                turns: _animation,
-                child: const FlutterLogo(
-                  size: 100,
-                ),
-              ),
-            ),
-            const Positioned(
-              bottom: 44,
-              child: CircularProgressIndicator(
-                color: Colors.amber,
-              ),
-            ),
+            // Center(
+            //   child: RotationTransition(
+            //     turns: _animation,
+            //     child: const FlutterLogo(
+            //       size: 100,
+            //     ),
+            //   ),
+            // ),
+            // const Positioned(
+            //   bottom: 44,
+            //   child: CircularProgressIndicator(
+            //     color: Colors.amber,
+            //   ),
+            // ),
             const Positioned(
               bottom: 16,
               child: Material(

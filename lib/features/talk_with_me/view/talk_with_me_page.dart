@@ -1,7 +1,9 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:kiran_portfolio/core/gen/fonts.gen.dart';
+import 'package:kiran_portfolio/data/provider/data_provider.dart';
 import 'package:kiran_portfolio/features/talk_with_me/view/widgets/custom_interest_widget.dart';
 import 'package:kiran_portfolio/shared/extension/fade_extenstion.dart';
 import 'package:kiran_portfolio/shared/widget/glass_card.dart';
@@ -69,18 +71,17 @@ class TalkWithMePage extends StatelessWidget {
                       context.isDarkMode ? Colors.white : context.primaryColor)
                   .make(),
               const Gap(20),
-                Wrap(
-                runSpacing: 15,
-                spacing: 8,
-                children: [
-                  CutomIntresetWidget(interestName: "Mobile Development"),
-                  CutomIntresetWidget(interestName: "Flutter Web"),
-                  CutomIntresetWidget(interestName: "Backend Development"),
-                  CutomIntresetWidget(interestName: "Portfolio"),
-                  CutomIntresetWidget(interestName: "UI/UX"),
-                  CutomIntresetWidget(interestName: "Cloud Development")
-                ],
-              ).w(500)
+              Consumer(builder: (context, ref, d) {
+                final intrests = ref.watch(profileProvider);
+                return Wrap(
+                  runSpacing: 15,
+                  spacing: 8,
+                  children: [
+                    ...intrests.interests
+                        .map((e) => CutomIntresetWidget(interestName: e))
+                  ],
+                ).w(500);
+              })
               //.fadeInUp(),
             ]
                 .vStack(crossAlignment: CrossAxisAlignment.start)
